@@ -1,0 +1,492 @@
+@import "nullstyle";
+@import "animation";
+
+/*Здесь будут классы*/
+$mainFont: -apple-system, BlinkMacSystemFont;
+$font: "M PLUS Rounded 1c";
+$mainColor1: #81e6d9;
+
+/*Здесь будут шаблоны*/
+%heading {
+  font-size: 20px;
+  font-family: $font;
+  margin: 12px 0 16px 0;
+  text-decoration: underline;
+}
+%paragraph {
+  line-height: 24px;
+  font-size: 16px;
+  text-align: justify;
+  text-indent: 1em;
+}
+%btn {
+  background: #81e6d9;
+  color: #1a202c;
+  padding: 12px 30px;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 16px 0;
+  text-align: center;
+  border-radius: 10px;
+}
+%img-mask {
+  min-height: 128px;
+  max-height: 128px;
+  border-radius: 10px;
+}
+%a-hover {
+  content: " ";
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  background: #ff63c3;
+  height: 1px;
+}
+
+* {
+  font-family: $mainFont, sans-serif;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: rgb(32, 32, 32);
+  font-feature-settings: 'kern';
+}
+.container {
+  max-width: 517.5px;
+  margin: 0 auto;
+}
+a {
+  color: #ff63c3;
+  position: relative;
+}
+nav {
+  position: fixed;
+  width: 100%;
+  background: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 99;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+      }
+
+      &:hover i {
+        transform: rotate(0deg);
+      }
+      h1 {
+        font-size: 18px;
+        margin-left: 5px;
+        font-family: $font;
+      }
+      i {
+        transform: rotate(-20deg);
+      }
+      .burger {
+        max-width: 38px;
+        background: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+      }
+      .menu-bar {
+        display: none;
+
+        &.active {
+          display: block;
+          padding: 8px 0;
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          border-radius: 5px;
+          margin-top: 10px;
+          background: #2d3748;
+          transform: translateX(-184px);
+          opacity: 1;
+          width: auto;
+          height: auto;
+        }
+        li {
+          a {
+            width: 222px;
+            padding: 6.4px 12.8px;
+            color: #fff;
+
+            &:hover {
+              border: rgb(79, 79, 221) 2px solid;
+              text-decoration: underline;
+              transition: border .2s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.header {
+  padding-top: 100px;
+
+  .container {
+    background: url(../img/computer.jpg) no-repeat center/cover;
+    height: 300px;
+    border-radius: 10px;
+  }
+}
+
+.about {
+  padding-top: 70px;
+  animation: emergence ease-in-out 0.5s 1 0s;
+
+  .container > p {
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 24px;
+  }
+  .about-me {
+    h2 {
+      font-size: 36px;
+      font-family: $font;
+    }
+    .my-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 100px;
+        margin-top: 16px;
+      }
+    }
+    h3 {
+      @extend %heading;
+    }
+    p {
+      @extend %paragraph;
+    }
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        @extend %btn;
+      }
+    }
+  }
+  .bio {
+    margin-bottom: 24px;
+
+    h3 {
+      @extend %heading;
+    }
+    .bio-main {
+      display: flex;
+
+      span {
+        margin-right: 16px;
+        font-weight: 700;
+      }
+      p {
+        @extend %paragraph;
+        text-indent: 0em;
+      }
+    }
+  }
+  .hobby {
+    margin-bottom: 24px;
+    h3 {
+      @extend %heading;
+    }
+    p {
+      @extend %paragraph;
+    }
+    a {
+      color: #ff63c3;
+    }
+  }
+  .social-media {
+    margin-bottom: 24px;
+    h3 {
+      @extend %heading;
+    }
+    ul {
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @extend %btn;
+        width: 30%;
+        margin: 0;
+        background: none;
+        color: #81e6d9;
+        transition: 0.3s ease-in-out;
+
+        i {
+          margin-right: 5px;
+          color: #81e6d9;
+        }
+        p {
+          color: #81e6d9;
+          @extend %paragraph;
+        }
+        &:hover {
+          background: #83e7da;
+
+          p,
+          i {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+.work:hover {
+  transition: .3s ease-in-out;
+  background-color: #6aa5ff !important;
+}
+.footer {
+  margin-top: 200px;
+  padding: 24px 0;
+  position: relative;
+  background: #3586ff;
+
+  p {
+    text-align: center;
+    font-size: 14px;
+    opacity: 1;
+  }
+}
+.footer .wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  background: url(../img/wave.png);
+  background-size: 1000px 100px;
+}
+.footer .wave#wave1 {
+  z-index: 10;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+} 
+.footer .wave#wave2 {
+  z-index: 10;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+} 
+.footer .wave#wave3 {
+  z-index: 10;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWave 3s linear infinite;
+} 
+.footer .wave#wave4 {
+  z-index: 10;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+} 
+@keyframes animateWave {
+  0%{
+    background-position-x: 1000px;
+  }
+  100%{
+    background-position-x: 0px;
+  }
+}
+@keyframes animateWave_02 {
+  0%{
+    background-position-x: 0px;
+  }
+  100%{
+    background-position-x: 1000px;
+  }
+}
+
+// Works.html
+.works {
+  padding: 0 16px;
+
+  h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: $font;
+    font-weight: 700;
+    position: relative;
+    padding-top: 20px;
+
+    &::before:nth-child(1) {
+      content: "";
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      opacity: 0.2;
+    }
+  }
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .card {
+    text-align: center;
+    margin: 24px 0;
+    max-width: 230px;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.08);
+      border-radius: 10px;
+    }
+
+    .img-mask {
+      @extend %img-mask;
+
+      img {
+        width: 100%;
+        min-height: 128px;
+        border-radius: 10px;
+        max-height: 128px;
+      }
+    }
+    h2 {
+      margin-top: 8px;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+    }
+    p {
+      line-height: 21px;
+      font-size: 14px;
+    }
+  }
+}
+
+.container {
+  .headering {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    a {
+      font-size: 16px;
+      font-weight: 700;
+      margin-right: 5px;
+      position: relative;
+
+      &:hover::before {
+        @extend %a-hover;
+      }
+    }
+    i {
+      font-size: 10px;
+      margin-right: 5px;
+    }
+    h3 {
+      font-family: $font;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+  > .p-ink {
+    line-height: 24px;
+  }
+  ul {
+    margin: 16px 0 16px 16px;
+
+    li {
+      span {
+        color: #9ae6b4;
+        font-size: 12px;
+        margin-right: 8px;
+        padding: 0 4px;
+        background: #9ae6b429;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      a {
+        font-size: 16px;
+        color: #ff63c3;
+      }
+    }
+  }
+  .img-mask,
+  .img-mask-flex {
+    max-height: 100%;
+    min-height: 100%;
+    margin-bottom: 16px;
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      max-height: 100%;
+    }
+  }
+  .img-mask-flex {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 48%;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    padding: 20px;
+  }
+  .header .container {
+    margin: 0 20px;
+  }
+  .works {
+    padding: 0 0;
+  }
+  .footer {
+    margin-top: 120px;
+  }
+}
+@media screen and (max-width: 725px) {
+  .cards {
+    flex-direction: column;
+
+    .card {
+      max-width: 100%;
+
+      .img-mask,
+      .img-mask > img {
+        max-height: 100%;
+        min-height: 100%;
+      }
+    }
+  }
+}

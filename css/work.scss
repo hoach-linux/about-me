@@ -1,0 +1,115 @@
+@import "nullstyle";
+@import "animation";
+
+/*Здесь будут классы*/
+$mainFont: "Lato";
+$font: "M PLUS Rounded 1c";
+$mainColor1: #81e6d9;
+
+/*Здесь будут шаблоны*/
+%heading {
+  font-size: 20px;
+  font-family: $font;
+  margin: 12px 0 16px 0;
+  text-decoration: underline;
+}
+%paragraph {
+  line-height: 24px;
+  font-size: 16px;
+  text-align: justify;
+  text-indent: 1em;
+}
+%btn {
+  background: #81e6d9;
+  color: #1a202c;
+  padding: 12px 30px;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 16px 0;
+  text-align: center;
+  border-radius: 10px;
+}
+
+* {
+  font-family: $mainFont, sans-serif;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: rgb(32, 32, 32);
+}
+.container {
+  max-width: 517.5px;
+  margin: 0 auto;
+}
+nav {
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  background: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(6px);
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+      }
+
+      &:hover i {
+        transform: rotate(0deg);
+      }
+      h1 {
+        font-size: 18px;
+        margin-left: 5px;
+        font-family: $font;
+      }
+      i {
+        transform: rotate(-20deg);
+      }
+      .burger {
+        max-width: 38px;
+        background: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+      }
+      .menu-bar {
+        display: none;
+
+        &.active {
+          display: block;
+          padding: 8px 0;
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          border-radius: 5px;
+          margin-top: 10px;
+          background: #2d3748;
+          transform: translateX(-184px);
+          opacity: 1;
+          width: auto;
+          height: auto;
+        }
+        li {
+          a {
+            width: 222px;
+            padding: 6.4px 12.8px;
+
+            &:hover {
+              border: rgb(79, 79, 221) 2px solid;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
